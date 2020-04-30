@@ -1,0 +1,43 @@
+{
+  "name": "kanji.js",
+  "version": "0.1.0",
+  "description": "Kanji search/lookup library for Node.js and browsers built with pure JavaScript",
+  "keywords": [],
+  "homepage": "https://github.com/eidoriantan/kanji.js#readme",
+  "bugs": "https://github.com/eidoriantan/kanji.js/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Adriane Justine Tan",
+    "email": "eidoriantan@gmail.com",
+    "url": "https://eidoriantan.github.io"
+  },
+  "contributors": [],
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/eidoriantan"
+  },
+  "main": "dist/kanji.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eidoriantan/kanji.js.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "lint": "eslint -c .eslintrc.json . --ext .js,.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "rollup": "^2.7.5",
+    "rollup-plugin-terser": "^5.3.0",
+    "standard": "^14.3.3"
+  }
+}
