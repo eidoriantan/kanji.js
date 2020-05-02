@@ -1,5 +1,5 @@
 
-const assert = require('assert')
+const should = require('should')
 const Kanji = require('../dist/kanji.js')
 
 const dayKanji = {
@@ -14,8 +14,21 @@ const dayKanji = {
 }
 
 describe('Kanji', function () {
+  it('Dump entire dictionary', function () {
+    should.strictEqual(Kanji.dump().length, 13108)
+  })
+
   it('Get Kanji details', function () {
     const kanji = Kanji.getDetails('日')
-    assert.deepStrictEqual(kanji, dayKanji)
+    should.deepEqual(kanji, dayKanji)
+  })
+
+  it('Search Kanji', function () {
+    const searchResults = Kanji.search({
+      meaning: 'days',
+      romaji: 'hi'
+    })
+
+    searchResults.should.containEql(dayKanji)
   })
 })
