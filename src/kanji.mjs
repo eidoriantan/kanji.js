@@ -6,9 +6,13 @@ export default class Kanji {
 
   static getDetails (character) {
     let details = null
-    dictionary.forEach(word => {
-      if (word.literal === character) details = word
-    })
+    for (let i = 0; i < dictionary.length; i++) {
+      const word = dictionary[i]
+      if (word.literal === character) {
+        details = word
+        break
+      }
+    }
 
     return details
   }
