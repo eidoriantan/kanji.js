@@ -17,6 +17,26 @@ export default class Kanji {
     return details
   }
 
+  static search (options = {}) {
+    const words = []
+    const { grade, jlpt, meaning = '' } = options
+
+    dictionary.forEach(word => {
+      if (typeof grade !== 'undefined' && grade !== word.grade) return
+      if (typeof jlpt !== 'undefined' && jlpt !== word.jlpt) return
+
+      for (let i = 0; i < word.meanings.length; i++) {
+        const wordMeaning = word.meanings[i]
+        if (wordMeaning.indexOf(meaning) > -1) {
+          words.push(word)
+          break
+        }
+      }
+    })
+
+    return words
+  }
+
   constructor () {
     this.name = 'Kanji'
     this.version = '0.1.0'
