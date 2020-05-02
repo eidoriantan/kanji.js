@@ -1,6 +1,6 @@
 {
   "name": "kanji.js",
-  "version": "0.3.0",
+  "version": "0.1.0",
   "description": "漢字 search/lookup library for Node.js and browsers",
   "keywords": [],
   "homepage": "https://github.com/eidoriantan/kanji.js#readme",
