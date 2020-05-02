@@ -26,7 +26,9 @@
     "watch": "rollup -c -w",
     "lint": "eslint -c .eslintrc.json . --ext .js,.mjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "wanakana": "^4.0.2"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",

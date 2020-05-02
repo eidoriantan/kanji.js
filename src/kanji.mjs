@@ -1,5 +1,6 @@
 
 import dictionary from './kanjidic2/kanjidic2.min.mjs'
+import { toKatakana, toHiragana } from 'wanakana'
 
 export default class Kanji {
   static dump () { return dictionary }
@@ -19,19 +20,48 @@ export default class Kanji {
 
   static search (options = {}) {
     const words = []
-    const { grade, jlpt, meaning = '' } = options
+    const { grade, jlpt, meaning = '', romaji = '' } = options
 
     dictionary.forEach(word => {
-      if (typeof grade !== 'undefined' && grade !== word.grade) return
-      if (typeof jlpt !== 'undefined' && jlpt !== word.jlpt) return
+      let match = true
+      if (match && typeof grade !== 'undefined' && word.grade !== grade) {
+        match = false
+      }
 
-      for (let i = 0; i < word.meanings.length; i++) {
-        const wordMeaning = word.meanings[i]
-        if (wordMeaning.indexOf(meaning) > -1) {
-          words.push(word)
-          break
+      if (match && typeof jlpt !== 'undefined' && word.jlpt !== jlpt) {
+        match = false
+      }
+
+      if (match && meaning !== '') {
+        match = false
+        for (let i = 0; i < word.meanings.length; i++) {
+          if (word.meanings[i].indexOf(meaning) > -1) {
+            match = true
+            break
+          }
         }
       }
+
+      if (match && romaji !== '') {
+        match = false
+        for (let i = 0; i < word.onyomi.length; i++) {
+          const katakana = toKatakana(romaji)
+          if (word.onyomi[i] === katakana) {
+            match = true
+            break
+          }
+        }
+
+        for (let i = 0; i < word.kunyomi.length; i++) {
+          const hiragana = toHiragana(romaji)
+          if (word.kunyomi[i] === hiragana) {
+            match = true
+            break
+          }
+        }
+      }
+
+      if (match) words.push(word)
     })
 
     return words
