@@ -1,0 +1,82 @@
+---
+layout: documentations
+title: MP3Tag
+description: >-
+  JavaScript library documentations page. kanji.js exported class documentation
+keywords: kanji, search, lookup, documentations, docs, mp3tag
+active: kanji
+last_modified_at: 05-03-2020T13:53:00+08:00
+---
+<div id="methods" class="Subhead bg-white position-sticky top-0">
+  <div class="Subhead-heading">Kanji character object</div>
+  <div class="Subhead-description">What a Kanji character object looks like</div>
+</div>
+
+{% capture character %}
+```javascript
+// Kanji character object
+{
+  freq: 1,
+  grade: 1,
+  jlpt: 4,
+  kunyomi: ['ひ', '-び', '-か'],
+  literal: '日',
+  meanings: ['day', 'sun', 'Japan', 'counter for days'],
+  onyomi: ['ニチ', 'ジツ'],
+  stroke_count: 4
+}
+```
+{% endcapture %}
+{{ character | markdownify }}
+
+<div id="methods" class="Subhead bg-white position-sticky top-0">
+  <div class="Subhead-heading">Methods</div>
+</div>
+
+<div class="Box Box--blue Box--condensed my-3">
+  <header class="Box-header Box-header--blue">
+    <span>Static Method: </span><strong class="Box-title">getDetails(character)</strong>
+  </header>
+  <div class="Box-body">
+    <small class="text-gray mb-2">Return type: object</small>
+    <p>
+      Gets the kanji details of the character and returns it.
+    </p>
+  </div>
+</div>
+
+<div class="Box Box--blue Box--condensed my-3">
+  <header class="Box-header Box-header--blue">
+    <span>Static Method: </span><strong class="Box-title">search(options = {})</strong>
+  </header>
+  <div class="Box-body">
+    <small class="text-gray mb-2">Return type: object[]</small>
+    <p>
+      Searches the entire dictionary file for words that matches the options.
+    </p>
+  </div>
+  {% capture search-options %}
+  ```javascript
+  // Available options
+  {
+    jlpt: 1,
+    grade: 1,
+    romaji: 'hi',
+    meaning: 'counter for days'
+  }
+  ```
+  {% endcapture %}
+  {{ search-options | markdownify }}
+</div>
+
+<div class="Box Box--blue Box--condensed my-3">
+  <header class="Box-header Box-header--blue">
+    <span>Static Method: </span><strong class="Box-title">random()</strong>
+  </header>
+  <div class="Box-body">
+    <small class="text-gray mb-2">Return type: object</small>
+    <p>
+      Returns a random kanji character.
+    </p>
+  </div>
+</div>

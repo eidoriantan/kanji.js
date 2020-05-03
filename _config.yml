@@ -1,0 +1,64 @@
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+sass:
+  style: compressed
+
+author: Adriane Justine Tan
+email: eidoriantan@gmail.com
+
+tagline: 漢字 search/lookup library for Node.js and browsers
+google_site_verification: pygHTY6j2sle4JJ1YmSCYlf8nxIxnq4u9bHe48Mc9do
+
+color: "#2b594c"
+
+links:
+  - name: GitHub Repository
+    icon: repo
+    link: "https://github.com/eidoriantan/kanji.js"
+
+  - name: Contact
+    icon: mail
+    link: mailto:eidoriantan@gmail.com
+
+  - name: Sitemap
+    icon: list-unordered
+    link: /sitemap.xml
+
+navlinks:
+  - name: Home
+    directories:
+      - "/"
+      - "/index.html"
+
+  - name: Documentations
+    directories:
+      - "/docs/"
+      - "/docs/index.html"
+      - "/docs/kanji.html"
+      - "/docs/usage.html"
+
+  - name: Downloads
+    directories:
+      - "/downloads/"
+      - "/downloads/index.html"
+
+plugins:
+  - jekyll-github-metadata
+  - jekyll-octicons
+  - jekyll-seo-tag
+  - jekyll-sitemap

@@ -1,0 +1,6 @@
+
+<nav class="SideNav border rounded-2 position-sticky top-4">
+  <a href="/docs/" class="SideNav-item"{% if include.active == 'installation' %} aria-current="page"{% endif %}>Installation</a>
+  <a href="/docs/usage.html" class="SideNav-item"{% if include.active == 'usage' %} aria-current="page"{% endif %}>Usage</a>
+  <a href="/docs/kanji.html" class="SideNav-item"{% if include.active == 'kanji' %} aria-current="page"{% endif %}>Kanji</a>
+</nav>

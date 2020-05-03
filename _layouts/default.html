@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="keywords" content="{{ page.keywords }}">
+  <meta name="theme-color" content="{{ site.color }}">
+  <meta name="msapplication-TileColor" content="{{ site.color }}">
+
+  <link href="{{ '/LICENSE' | relative_url }}" rel="license">
+  <link href="{{ '/site.webmanifest' | relative_url }}" rel="manifest">
+  <link href="{{ '/assets/css/default.css' | relative_url }}" rel="stylesheet">
+  {% for stylesheet in page.stylesheets %}
+  <link href="{{ stylesheet | relative_url }}" rel="stylesheet">
+  {% endfor %}
+
+  <script src="{{ '/assets/js/default.js' | relative_url }}"></script>
+  {% for script in page.scripts %}
+  <script src="{{ script | relative_url }}"></script>
+  {% endfor %}
+
+  {% seo title=false %}
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-161214318-3" async></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag () { dataLayer.push(arguments) }
+
+    gtag('js', new Date())
+    gtag('config', 'UA-161214318-4', { 'anonymize_ip': true })
+  </script>
+
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+</head>
+
+<body>
+  {% if page.header != false %}
+  <header class="Header d-block d-md-flex">
+    <div class="Header-item my-2 my-md-0">
+      <a href="{{ site.github.url }}" class="Header-link d-flex flex-items-center">
+        <span class="f4">{{ site.github.project_title }}</span>
+      </a>
+    </div>
+
+    {% for link in site.navlinks %}
+    <div class="Header-item{% if forloop.last %} Header-item--full{% endif %} my-2 my-md-0">
+      <a href="{{ link.directories[0] }}" class="Header-link" aria-label="{{ link.name }}">{{ link.name }}</a>
+    </div>
+    {% endfor %}
+
+    <div class="Header-item my-2 my-md-0">
+      <a href="{{ site.github.repository_url }}" class="Header-link btn-octicon">
+        {% octicon mark-github %}
+      </a>
+    </div>
+
+    <div class="Header-item my-2 my-md-0">
+      <a href="{{ site.github.latest_release.zipball_url }}" class="btn btn-primary" role="button" download>
+        {% octicon arrow-down height:20 class:'mr-2' %}
+        <span>Download {{ site.github.latest_release.tag_name }}</span>
+      </a>
+    </div>
+  </header>
+  {% endif %}
+
+  {% if page.toast == true %}
+  <div class="toaster-container" aria-live="polite" aria-atomic="true">
+    <div id="toaster" class="toaster"></div>
+  </div>
+  {% endif %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% if page.toast == true %}
+  <template id="toast-template">
+    <div class="Toast anim-scale-in" role="alert" aria-live="assertive" aria-atomic="true">
+      <span class="Toast-icon"></span>
+      <span class="Toast-content"></span>
+    </div>
+  </template>
+  {% endif %}
+
+  {% if page.footer != false %}
+  <footer class="d-flex py-5">
+    <span class="text-gray mx-auto">Copyright &copy; 2020, <a href="{{ site.github.owner.blog }}">@{{ site.github.owner.login }}</a></span>
+  </footer>
+  {% endif %}
+</body>
+</html>
