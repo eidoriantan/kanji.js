@@ -12,6 +12,8 @@ This library uses the
 the characters. The dictionary file is included so that it will work with
 browsers. The size of the distributed file is about ~2MB.
 
+For examples, you can browse the `examples` folder.
+
 ### Features
  * Easy to use
  * Search function
