@@ -17,6 +17,10 @@
     "url": "https://patreon.com/eidoriantan"
   },
   "main": "dist/kanji.min.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eidoriantan/kanji.js.git"
