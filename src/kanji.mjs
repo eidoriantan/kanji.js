@@ -67,6 +67,11 @@ export default class Kanji {
     return words
   }
 
+  static random () {
+    const random = Math.floor(Math.random() * dictionary.length)
+    return dictionary[random]
+  }
+
   constructor () {
     this.name = 'Kanji'
     this.version = '0.1.0'
