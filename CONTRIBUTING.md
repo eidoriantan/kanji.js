@@ -8,6 +8,9 @@ make sure that you are following this guideline:
 
  * Extending the styleguide, please limit the rowlength to 80 characters;
 
+ * Test your changes by running `npm run test` before committing. This makes
+   sure that you are following the styleguide and not breaking any codes;
+
  * When committing, the commit message should follow the
    [Convential Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/).
    This might be useful in the future for automations.
