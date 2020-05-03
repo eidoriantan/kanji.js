@@ -31,4 +31,10 @@ describe('Kanji', function () {
 
     searchResults.should.containEql(dayKanji)
   })
+
+  it('Get random character', function () {
+    const keys = Object.keys(dayKanji)
+    const random = Kanji.random()
+    random.should.have.keys(...keys)
+  })
 })
