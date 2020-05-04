@@ -9,18 +9,12 @@
 
   <link href="{{ '/LICENSE' | relative_url }}" rel="license">
   <link href="{{ '/site.webmanifest' | relative_url }}" rel="manifest">
-  <link href="{{ '/assets/css/default.css' | relative_url }}" rel="stylesheet">
-  {% for stylesheet in page.stylesheets %}
-  <link href="{{ stylesheet | relative_url }}" rel="stylesheet">
-  {% endfor %}
+  <link href="{{ '/assets/css/default.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet">
 
   <script src="{{ '/assets/js/default.js' | relative_url }}"></script>
-  {% for script in page.scripts %}
-  <script src="{{ script | relative_url }}"></script>
-  {% endfor %}
 
   {% seo title=false %}
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-161214318-3" async></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-161214318-4" async></script>
   <script>
     window.dataLayer = window.dataLayer || []
     function gtag () { dataLayer.push(arguments) }
@@ -33,7 +27,6 @@
 </head>
 
 <body>
-  {% if page.header != false %}
   <header class="Header d-block d-md-flex">
     <div class="Header-item my-2 my-md-0">
       <a href="{{ site.github.url }}" class="Header-link d-flex flex-items-center">
@@ -60,31 +53,13 @@
       </a>
     </div>
   </header>
-  {% endif %}
-
-  {% if page.toast == true %}
-  <div class="toaster-container" aria-live="polite" aria-atomic="true">
-    <div id="toaster" class="toaster"></div>
-  </div>
-  {% endif %}
 
   <main>
     {{ content }}
   </main>
 
-  {% if page.toast == true %}
-  <template id="toast-template">
-    <div class="Toast anim-scale-in" role="alert" aria-live="assertive" aria-atomic="true">
-      <span class="Toast-icon"></span>
-      <span class="Toast-content"></span>
-    </div>
-  </template>
-  {% endif %}
-
-  {% if page.footer != false %}
   <footer class="d-flex py-5">
     <span class="text-gray mx-auto">Copyright &copy; 2020, <a href="{{ site.github.owner.blog }}">@{{ site.github.owner.login }}</a></span>
   </footer>
-  {% endif %}
 </body>
 </html>
