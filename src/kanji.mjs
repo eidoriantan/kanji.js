@@ -23,45 +23,43 @@ export default class Kanji {
     const { grade, jlpt, meaning = '', romaji = '' } = options
 
     dictionary.forEach(word => {
-      let match = true
-      if (match && typeof grade !== 'undefined' && word.grade !== grade) {
-        match = false
-      }
+      if (typeof grade !== 'undefined' && word.grade !== grade) return true
+      if (typeof jlpt !== 'undefined' && word.jlpt !== jlpt) return true
 
-      if (match && typeof jlpt !== 'undefined' && word.jlpt !== jlpt) {
-        match = false
-      }
-
-      if (match && meaning !== '') {
-        match = false
+      if (meaning !== '') {
+        if (word.meanings.length === 0) return true
         for (let i = 0; i < word.meanings.length; i++) {
-          if (word.meanings[i].indexOf(meaning) > -1) {
-            match = true
-            break
-          }
+          if (word.meanings[i].indexOf(meaning) > -1) break
+          else if (i === (word.meanings.length - 1)) return true
         }
       }
 
-      if (match && romaji !== '') {
-        match = false
-        for (let i = 0; i < word.onyomi.length; i++) {
+      if (romaji !== '') {
+        let readingsMatch = false
+        if (!readingsMatch && word.onyomi.length > 0) {
           const katakana = toKatakana(romaji)
-          if (word.onyomi[i] === katakana) {
-            match = true
-            break
+          for (let i = 0; i < word.onyomi.length; i++) {
+            if (word.onyomi[i].indexOf(katakana) > -1) {
+              readingsMatch = true
+              break
+            }
           }
         }
 
-        for (let i = 0; i < word.kunyomi.length; i++) {
+        if (!readingsMatch && word.kunyomi.length > 0) {
           const hiragana = toHiragana(romaji)
-          if (word.kunyomi[i] === hiragana) {
-            match = true
-            break
+          for (let i = 0; i < word.kunyomi.length; i++) {
+            if (word.kunyomi[i].indexOf(hiragana) > -1) {
+              readingsMatch = true
+              break
+            }
           }
         }
+
+        if (!readingsMatch) return true
       }
 
-      if (match) words.push(word)
+      words.push(word)
     })
 
     return words
