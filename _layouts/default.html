@@ -10,8 +10,9 @@
   <link href="{{ '/LICENSE' | relative_url }}" rel="license">
   <link href="{{ '/site.webmanifest' | relative_url }}" rel="manifest">
   <link href="{{ '/assets/css/default.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet">
-
-  <script src="{{ '/assets/js/default.js' | relative_url }}"></script>
+  {% for script in page.scripts %}
+  <script src="{{ script | append: '?v=' | append: site.github.build_revision | relative_url }}"></script>
+  {% endfor %}
 
   {% seo title=false %}
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-161214318-4" async></script>
