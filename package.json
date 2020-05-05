@@ -29,7 +29,8 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "lint": "eslint -c .eslintrc.json . --ext .js,.mjs",
-    "test": "npm run lint && mocha --colors"
+    "test": "npm run lint && mocha --colors",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "wanakana": "^4.0.2"
