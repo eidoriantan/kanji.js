@@ -1,6 +1,6 @@
 {
   "name": "kanji.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "漢字 search/lookup library for Node.js and browsers",
   "keywords": [],
   "homepage": "https://kanji.js.org",
@@ -33,6 +33,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "fuzzyset.js": "^1.0.5",
     "wanakana": "^4.0.2"
   },
   "devDependencies": {

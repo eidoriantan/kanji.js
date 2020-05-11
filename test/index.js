@@ -30,7 +30,7 @@ describe('Kanji', function () {
     })
 
     searchResults.should.containEql(dayKanji)
-  })
+  }).timeout(5000)
 
   it('Get random character', function () {
     const keys = Object.keys(dayKanji)

@@ -1,6 +1,8 @@
 
-import dictionary from './kanjidic2/kanjidic2.min.mjs'
 import { toKatakana, toHiragana } from 'wanakana'
+import FuzzySet from 'fuzzyset.js'
+
+import dictionary from './kanjidic2/kanjidic2.min.mjs'
 
 export default class Kanji {
   static dump () { return dictionary }
@@ -20,49 +22,35 @@ export default class Kanji {
 
   static search (options = {}) {
     const words = []
-    const { grade, jlpt, meaning = '', romaji = '' } = options
+    const { grade, jlpt, meaning, romaji } = options
 
     dictionary.forEach(word => {
+      const item = { word, scores: [0] }
+
       if (typeof grade !== 'undefined' && word.grade !== grade) return true
       if (typeof jlpt !== 'undefined' && word.jlpt !== jlpt) return true
 
-      if (meaning !== '') {
-        if (word.meanings.length === 0) return true
-        for (let i = 0; i < word.meanings.length; i++) {
-          if (word.meanings[i].indexOf(meaning) > -1) break
-          else if (i === (word.meanings.length - 1)) return true
-        }
+      if (typeof meaning !== 'undefined') {
+        const meaningSet = FuzzySet(word.meanings).get(meaning)
+        if (meaningSet !== null) item.scores.push(meaningSet[0][0])
       }
 
-      if (romaji !== '') {
-        let readingsMatch = false
-        if (!readingsMatch && word.onyomi.length > 0) {
-          const katakana = toKatakana(romaji)
-          for (let i = 0; i < word.onyomi.length; i++) {
-            if (word.onyomi[i].indexOf(katakana) > -1) {
-              readingsMatch = true
-              break
-            }
-          }
-        }
+      if (typeof romaji !== 'undefined') {
+        const onyomiSet = FuzzySet(word.onyomi).get(toKatakana(romaji))
+        if (onyomiSet !== null) item.scores.push(onyomiSet[0][0] / 2)
 
-        if (!readingsMatch && word.kunyomi.length > 0) {
-          const hiragana = toHiragana(romaji)
-          for (let i = 0; i < word.kunyomi.length; i++) {
-            if (word.kunyomi[i].indexOf(hiragana) > -1) {
-              readingsMatch = true
-              break
-            }
-          }
-        }
-
-        if (!readingsMatch) return true
+        const kunyomiSet = FuzzySet(word.kunyomi).get(toHiragana(romaji))
+        if (kunyomiSet !== null) item.scores.push(kunyomiSet[0][0] / 2)
       }
 
-      words.push(word)
+      const maxScore = Math.max(...item.scores)
+      if (maxScore > 0) {
+        item.score = maxScore
+        words.push(item)
+      }
     })
 
-    return words
+    return words.sort((a, b) => b.score - a.score).map(item => item.word)
   }
 
   static random () {
