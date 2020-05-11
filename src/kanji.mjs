@@ -21,7 +21,7 @@ export default class Kanji {
   }
 
   static search (options = {}) {
-    const words = []
+    let words = []
     const { grade, jlpt, meaning, romaji } = options
 
     dictionary.forEach(word => {
@@ -50,7 +50,8 @@ export default class Kanji {
       }
     })
 
-    return words.sort((a, b) => b.score - a.score).map(item => item.word)
+    if (options.sort) words = words.sort((a, b) => b.score - a.score)
+    return words.map(item => item.word)
   }
 
   static random () {
