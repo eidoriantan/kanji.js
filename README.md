@@ -12,7 +12,8 @@ This library uses the
 the characters. The dictionary file is included so that it will work with
 browsers. The size of the distributed file is about ~2MB.
 
-For examples, you can browse the `examples` folder.
+For examples, you can browse the
+[examples](https://github.com/eidoriantan/kanji.js/tree/master/examples) folder.
 
 ### Features
  * Easy to use
@@ -74,6 +75,9 @@ Kanji.search({
 //    stroke_count: 4
 //  }]
 ```
+
+Please browse the [documentations page](https://kanji.js.org/docs/kanji.html)
+for more detailed information.
 
 ### Support
 If you had found a bug or any unexpected behavior, you can submit an issue
