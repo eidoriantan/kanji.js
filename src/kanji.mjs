@@ -22,35 +22,33 @@ export default class Kanji {
 
   static search (options = {}) {
     let words = []
-    const { grade, jlpt, meaning, romaji } = options
+    const { grade, jlpt, meaning, romaji, sort = true } = options
 
     dictionary.forEach(word => {
-      const item = { word, scores: [0] }
+      const item = { word, score: 0 }
 
       if (typeof grade !== 'undefined' && word.grade !== grade) return true
       if (typeof jlpt !== 'undefined' && word.jlpt !== jlpt) return true
 
       if (typeof meaning !== 'undefined') {
-        const meaningSet = FuzzySet(word.meanings).get(meaning)
-        if (meaningSet !== null) item.scores.push(meaningSet[0][0])
+        const meaningSet = FuzzySet(word.meanings).get(meaning, null, 0.75)
+        if (meaningSet !== null) item.score += meaningSet[0][0]
       }
 
       if (typeof romaji !== 'undefined') {
-        const onyomiSet = FuzzySet(word.onyomi).get(toKatakana(romaji))
-        if (onyomiSet !== null) item.scores.push(onyomiSet[0][0] / 2)
+        const onyomiSet = FuzzySet(word.onyomi)
+          .get(toKatakana(romaji), null, 0.75)
+        if (onyomiSet !== null) item.score += onyomiSet[0][0] / 2
 
-        const kunyomiSet = FuzzySet(word.kunyomi).get(toHiragana(romaji))
-        if (kunyomiSet !== null) item.scores.push(kunyomiSet[0][0] / 2)
+        const kunyomiSet = FuzzySet(word.kunyomi)
+          .get(toHiragana(romaji), null, 0.75)
+        if (kunyomiSet !== null) item.score += kunyomiSet[0][0] / 2
       }
 
-      const maxScore = Math.max(...item.scores)
-      if (maxScore > 0) {
-        item.score = maxScore
-        words.push(item)
-      }
+      if (item.score > 0) words.push(item)
     })
 
-    if (options.sort) words = words.sort((a, b) => b.score - a.score)
+    if (sort) words = words.sort((a, b) => b.score - a.score)
     return words.map(item => item.word)
   }
 
