@@ -21,7 +21,7 @@ scripts:
   </form>
 </div>
 
-<div id="results" class="d-none col-10 mx-auto">
+<div id="results" class="col-10 mx-auto">
 </div>
 
 <template id="result-item-template">
@@ -41,5 +41,11 @@ scripts:
         <span data-temp="kunyomi"></span>
       </p>
     </div>
+  </div>
+</template>
+
+<template id="loader-template">
+  <div class="text-center">
+    {% octicon primitive-dot height:72 class:anim-pulse aria-label:true %}
   </div>
 </template>
