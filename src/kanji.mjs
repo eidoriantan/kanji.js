@@ -27,8 +27,19 @@ export default class Kanji {
     dictionary.forEach(word => {
       const item = { word, score: 0 }
 
-      if (typeof grade !== 'undefined' && word.grade !== grade) return true
-      if (typeof jlpt !== 'undefined' && word.jlpt !== jlpt) return true
+      if (typeof grade === 'object') {
+        if (grade.min && word.grade < grade.min) return
+        else if (grade.max && word.grade > grade.max) return
+      } else if (typeof grade === 'number') {
+        if (word.grade !== grade) return
+      }
+
+      if (typeof jlpt === 'object') {
+        if (jlpt.min && word.jlpt < jlpt.min) return
+        else if (jlpt.max && word.jlpt > jlpt.max) return
+      } else if (typeof grade === 'number') {
+        if (word.grade !== grade) return
+      }
 
       if (typeof meaning !== 'undefined') {
         const meaningSet = FuzzySet(word.meanings).get(meaning, null, 0.75)
