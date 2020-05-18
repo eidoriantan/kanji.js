@@ -1,8 +1,8 @@
 ---
 ---
 {
-    "name": "{{ site.title }}",
-    "short_name": "{{ site.title }}",
+    "name": "kanji.js",
+    "short_name": "kanji.js",
     "display": "standalone",
     "theme_color": "{{ site.color }}",
     "background_color": "{{ site.color }}"
