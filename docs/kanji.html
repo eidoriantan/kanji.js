@@ -6,7 +6,7 @@ description: >-
   documentation
 keywords: kanji, 漢字, search, lookup, documentations, docs
 active: kanji
-last_modified_at: 2020-05-12T00:25:00+08:00
+last_modified_at: 2020-05-18T18:15:00+08:00
 ---
 <div class="Subhead bg-white position-sticky top-0">
   <div class="Subhead-heading">漢字 object</div>
@@ -69,6 +69,21 @@ last_modified_at: 2020-05-12T00:25:00+08:00
     romaji: 'hi',
     meaning: 'counter for days',
     sort: true // Enable sorting by best matches; default: true
+  }
+
+  // You can also search jlpt and/or grade by specifying `min` and `max`
+  {
+    jlpt: {
+      min: 1,
+      max: 2
+    },
+    grade: {
+      min: 1,
+      max: 2
+    },
+    romaji: 'hi',
+    meaning: 'counter for days',
+    sort: true
   }
   ```
   {% endcapture %}
