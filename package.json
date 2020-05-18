@@ -1,6 +1,6 @@
 {
   "name": "kanji.js",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "漢字 search/lookup library for Node.js and browsers",
   "keywords": [
     "node",
@@ -54,7 +54,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^7.1.2",
-    "rollup": "^2.10.0",
+    "rollup": "^2.10.2",
     "rollup-plugin-terser": "^5.3.0",
     "should": "^13.2.3",
     "standard": "^14.3.4"
