@@ -25,6 +25,7 @@
     "url": "https://patreon.com/eidoriantan"
   },
   "main": "dist/kanji.min.js",
+  "module": "src/kanji.mjs",
   "directories": {
     "example": "examples",
     "test": "test"
