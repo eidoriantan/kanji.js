@@ -7,9 +7,9 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2020)
 
 漢字 search/lookup library for Node.js and browsers. It uses the
-[KANJIDIC](http://www.edrdg.org/wiki/index.php/KANJIDIC_Project) to search for
-the characters. The dictionary file is included so that it will work with
-browsers. The size of the distributed file is about ~2MB.
+[KANJIDIC](http://www.edrdg.org/wiki/index.php/KANJIDIC_Project) to
+search/lookup for the characters. The dictionary file is included so that it
+will work with browsers. The size of the distributed file is about ~2MB.
 
 You can also explore the
 [examples](https://github.com/eidoriantan/kanji.js/tree/master/examples)
