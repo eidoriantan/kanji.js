@@ -16,7 +16,7 @@ make sure that you are following these guidelines:
    run `npm run commitlint` to test your commit message.
 
 Also, please take a look at the
-[repository's projects](https://github.com/eidoriantan/mp3tag.js/projects) to
+[repository's projects](https://github.com/eidoriantan/kanji.js/projects) to
 know the library's future plans.
 
 Any contributions to this library is greatly appreciated. Thank you

@@ -72,7 +72,7 @@ Kanji.search({
 ```
 
 If you want a detailed documentations, please visit the documentations page at
-[mp3tag.js.org][docs].
+[kanji.js.org][docs].
 
 ### Support
 If you had found a bug or any unexpected behavior, you can submit an issue
