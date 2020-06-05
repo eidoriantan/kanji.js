@@ -1,14 +1,16 @@
 
-# kanji.js.org
+# Kanji.js Website
 
 [![GitHub Deployments](https://img.shields.io/github/deployments/eidoriantan/kanji.js/github-pages)](https://github.com/eidoriantan/kanji.js/deployments)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fkanji.js.org)](https://kanji.js.org)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fkanji.js.org)][homepage]
+[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkanji.js.org)][homepage]
 
-Public repository of [kanji.js.org][homepage]. The website was automatically
-built by [Jekyll][jekyll] and was deployed using the [GitHub Pages][gh-pages].
+Public repository of the library's [homepage]. It was automatically built with
+[Jekyll] and was deployed using [GitHub Pages].
 
-If you have any suggestions or questions, just file an issue.
+If you have any suggestions or questions, feel free to file an issue.
 
 [homepage]: https://kanji.js.org
-[jekyll]: https://jekyllrb.com
-[gh-pages]: https://pages.github.com
+
+[Jekyll]: https://jekyllrb.com
+[GitHub Pages]: https://pages.github.com
