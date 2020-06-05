@@ -4,16 +4,20 @@
 [![Node.js CI](https://github.com/eidoriantan/kanji.js/workflows/Node.js%20CI/badge.svg)](https://github.com/eidoriantan/kanji.js/actions?query=workflow%3A%22Node.js+CI%22)
 [![Build Status](https://travis-ci.com/eidoriantan/kanji.js.svg?branch=master)](https://travis-ci.com/eidoriantan/kanji.js)
 [![npm](https://img.shields.io/npm/v/kanji.js/latest?registry_uri=https%3A%2F%2Fregistry.npmjs.com%2Fkanji.js&label=kanji.js@latest)](https://npmjs.com/kanji.js)
-![Maintenance](https://img.shields.io/maintenance/yes/2020)
+[![GitHub](https://img.shields.io/github/license/eidoriantan/kanji.js)](https://github.com/eidoriantan/kanji.js/blob/master/LICENSE.txt)
 
-漢字 search/lookup library for Node.js and browsers. It uses the
-[KANJIDIC](http://www.edrdg.org/wiki/index.php/KANJIDIC_Project) to
-search/lookup for the characters. The dictionary file is included so that it
-will work with browsers. The size of the distributed file is about ~2MB.
+漢字 search/lookup library for Node.js and browsers. It uses the [KANJIDIC]
+dictionary file to search/lookup for the characters. The dictionary file is
+included so that it will work with browsers. The size of the distributed file
+is about ~2MB.
 
-You can also explore the
+Visit [kanji.js.org][homepage] to learn more about the library. You can also
+explore the
 [examples](https://github.com/eidoriantan/kanji.js/tree/master/examples)
-directory for examples.
+directory for examples on how to use the library.
+
+The website is also open sourced and can be viewed at
+[gh-pages](https://github.com/eidoriantan/kanji.js/tree/gh-pages) branch.
 
 ### Features
  * Easy to use
@@ -67,8 +71,8 @@ Kanji.search({
 //  }]
 ```
 
-Please browse the [documentations page](https://kanji.js.org/docs/) for more
-detailed information.
+If you want a detailed documentations, please visit the documentations page at
+[mp3tag.js.org][docs].
 
 ### Support
 If you had found a bug or any unexpected behavior, you can submit an issue
@@ -79,3 +83,7 @@ wanted to contribute to this repository, please refer to
 You can also show your support by becoming a patron!
 
 [![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/eidoriantan)
+
+[homepage]: https://kanji.js.org
+[docs]: https://kanji.js.org/docs/
+[KANJIDIC]: http://www.edrdg.org/wiki/index.php/KANJIDIC_Project
