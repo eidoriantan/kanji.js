@@ -14,5 +14,5 @@
   "extends": "standard",
   "rules": { "max-len": ["error", 80] },
   "noInlineConfig": true,
-  "ignorePatterns": ["dist", "node_modules", "*.min.*"]
+  "ignorePatterns": ["dist", "node_modules", "*.min.mjs"]
 }
