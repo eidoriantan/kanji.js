@@ -1,7 +1,6 @@
 
 # Kanji.js Website
 
-[![GitHub Deployments](https://img.shields.io/github/deployments/eidoriantan/kanji.js/github-pages)](https://github.com/eidoriantan/kanji.js/deployments)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fkanji.js.org)][homepage]
 [![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkanji.js.org)][homepage]
 
