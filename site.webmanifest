@@ -3,7 +3,9 @@
 {
     "name": "kanji.js",
     "short_name": "kanji.js",
+    "start_url": "./",
     "display": "standalone",
-    "theme_color": "{{ site.color }}",
-    "background_color": "{{ site.color }}"
+    "description": "{{ site.tagline }}",
+    "background_color": "{{ site.color }}",
+    "theme_color": "{{ site.color }}"
 }
