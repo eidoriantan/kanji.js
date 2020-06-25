@@ -7,14 +7,11 @@
   <meta name="theme-color" content="{{ site.color }}">
   <meta name="msapplication-TileColor" content="{{ site.color }}">
 
+  {% seo title=false %}
+
   <link href="{{ '/LICENSE.txt' | relative_url }}" rel="license">
   <link href="{{ '/site.webmanifest' | relative_url }}" rel="manifest">
   <link href="{{ '/assets/css/default.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet">
-  {% for script in page.scripts %}
-  <script src="{{ script | append: '?v=' | append: site.github.build_revision | relative_url }}"></script>
-  {% endfor %}
-
-  {% seo title=false %}
 
   <title>{% if page.title %}{{ page.title }} | {% endif %}kanji.js</title>
 </head>
