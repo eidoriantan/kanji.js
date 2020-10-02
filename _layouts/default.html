@@ -19,7 +19,7 @@
 <body>
   <header class="Header d-block d-md-flex">
     <div class="Header-item my-2 my-md-0">
-      <a href="{{ site.github.url }}" class="Header-link d-flex flex-items-center">
+      <a href="{{ site.github.url }}" class="Header-link d-flex flex-items-center" title="Kanji.js">
         <span class="f4">kanji.js</span>
       </a>
     </div>
@@ -27,13 +27,13 @@
     {% include navlinks.html %}
 
     <div class="Header-item my-2 my-md-0">
-      <a href="{{ site.github.repository_url }}" class="Header-link btn-octicon">
+      <a href="{{ site.github.repository_url }}" class="Header-link btn-octicon" title="GitHub Repository">
         {% octicon mark-github %}
       </a>
     </div>
 
     <div class="Header-item my-2 my-md-0">
-      <a href="{{ site.github.latest_release.zipball_url }}" class="btn btn-primary" role="button" download>
+      <a href="{{ site.github.latest_release.zipball_url }}" class="btn btn-primary" role="button" title="Download latest" download>
         {% octicon arrow-down height:20 class:'mr-2' %}
         <span>Download {{ site.github.latest_release.tag_name }}</span>
       </a>
@@ -45,7 +45,7 @@
   </main>
 
   <footer class="d-flex py-5">
-    <span class="text-gray mx-auto">Copyright &copy; 2020, <a href="{{ site.github.owner.blog }}">@{{ site.github.owner.login }}</a></span>
+    <span class="text-gray mx-auto">Copyright &copy; 2020, <a href="{{ site.github.owner.blog }}" title="@{{ site.github.owner.login }}">@{{ site.github.owner.login }}</a></span>
   </footer>
 </body>
 </html>
