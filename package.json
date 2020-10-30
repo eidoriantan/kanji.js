@@ -38,7 +38,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "lint": "eslint -c .eslintrc.json .",
-    "commitlint": "git log -1 --format=%B | commitlint",
+    "postlint": "git log -1 --format=%B | commitlint",
     "pretest": "npm run build",
     "test": "npm run lint && mocha test/index.js",
     "clean": "rm -rf dist"
