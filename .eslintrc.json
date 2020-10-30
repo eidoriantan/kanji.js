@@ -12,8 +12,12 @@
     "node": true,
     "mocha": true
   },
-  "extends": "standard",
-  "rules": { "max-len": ["error", 80] },
+  "extends": ["standard"],
+  "plugins": ["import"],
+  "rules": {
+    "import/no-duplicates": "off",
+    "max-len": ["error", 80]
+  },
   "noInlineConfig": true,
   "ignorePatterns": ["dist", "node_modules", "*.min.mjs"]
 }
