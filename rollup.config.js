@@ -15,7 +15,7 @@ if (production) {
     file: 'dist/kanji.min.js',
     format: 'umd',
     name: 'Kanji',
-    plugins: terser()
+    plugins: [terser()]
   })
 }
 
