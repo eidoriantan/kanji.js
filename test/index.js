@@ -1,4 +1,6 @@
 
+/* eslint-env mocha */
+
 const should = require('should')
 const Kanji = require('../dist/kanji.js')
 
