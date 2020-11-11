@@ -1,7 +1,7 @@
 
 import { terser } from 'rollup-plugin-terser'
 import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve as resolve } from '@rollup/plugin-node-resolve'
 
 const production = process.env.NODE_ENV === 'production'
 const outputs = [{
