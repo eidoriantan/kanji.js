@@ -20,8 +20,8 @@ The website is also open sourced and can be viewed at
 [gh-pages](https://github.com/eidoriantan/kanji.js/tree/gh-pages) branch.
 
 ### Features
- * Easy to use
- * Fuzzy search function
+* Easy to use
+* Fuzzy search function
 
 ## Installation
 You can download the ready-to-use script at
