@@ -2,7 +2,6 @@
 # Kanji.js
 
 [![Node.js CI](https://github.com/eidoriantan/kanji.js/workflows/Node.js%20CI/badge.svg)](https://github.com/eidoriantan/kanji.js/actions?query=workflow%3A%22Node.js+CI%22)
-[![Build Status](https://travis-ci.com/eidoriantan/kanji.js.svg?branch=master)](https://travis-ci.com/eidoriantan/kanji.js)
 [![npm](https://img.shields.io/npm/v/kanji.js/latest?registry_uri=https%3A%2F%2Fregistry.npmjs.com%2Fkanji.js&label=kanji.js@latest)](https://npmjs.com/kanji.js)
 [![GitHub](https://img.shields.io/github/license/eidoriantan/kanji.js)](https://github.com/eidoriantan/kanji.js/blob/master/LICENSE.txt)
 
