@@ -52,7 +52,7 @@
     "@commitlint/config-conventional": "^12.0.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "mocha": "^8.2.1",
+    "mocha": "^9.0.0",
     "rollup": "^2.33.1",
     "rollup-plugin-terser": "^7.0.0",
     "should": "^13.2.3",
