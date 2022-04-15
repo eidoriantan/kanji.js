@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "fuzzyset.js": "^1.0.5",
-    "wanakana": "^4.0.2"
+    "wanakana": "^5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
