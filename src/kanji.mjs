@@ -1,5 +1,5 @@
 
-import { toKatakana, toHiragana } from 'wanakana'
+import * as wanakana from 'wanakana'
 import FuzzySet from 'fuzzyset.js'
 
 import dictionary from './kanjidic2/kanjidic2.min.mjs'
@@ -48,11 +48,11 @@ export default class Kanji {
 
       if (typeof romaji !== 'undefined') {
         const onyomiSet = FuzzySet(word.onyomi)
-          .get(toKatakana(romaji), null, 0.75)
+          .get(wanakana.toKatakana(romaji), null, 0.75)
         if (onyomiSet !== null) item.score += onyomiSet[0][0] / 2
 
         const kunyomiSet = FuzzySet(word.kunyomi)
-          .get(toHiragana(romaji), null, 0.75)
+          .get(wanakana.toHiragana(romaji), null, 0.75)
         if (kunyomiSet !== null) item.score += kunyomiSet[0][0] / 2
       }
 
