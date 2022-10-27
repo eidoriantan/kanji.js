@@ -27,18 +27,15 @@ export default class Kanji {
     dictionary.forEach(word => {
       const item = { word, score: 0 }
 
-      if (typeof grade === 'object') {
-        if (grade.min && word.grade < grade.min) return
-        else if (grade.max && word.grade > grade.max) return
-      } else if (typeof grade === 'number') {
-        if (word.grade !== grade) return
-      }
-
-      if (typeof jlpt === 'object') {
-        if (jlpt.min && word.jlpt < jlpt.min) return
-        else if (jlpt.max && word.jlpt > jlpt.max) return
-      } else if (typeof jlpt === 'number') {
-        if (word.jlpt !== jlpt) return
+      if (
+        (typeof grade === 'object' && ((grade.min && word.grade < grade.min) || (grade.max && word.grade > grade.max))) ||
+        (typeof grade === 'number' && word.grade !== grade) ||
+        (typeof jlpt === 'object' && ((jlpt.min && word.jlpt < jlpt.min) || (jlpt.max && word.jlpt > jlpt.max))) ||
+        (typeof jlpt === 'number' && word.jlpt !== jlpt)
+      ) {
+        return
+      } else {
+        item.score += 1
       }
 
       if (typeof meaning !== 'undefined') {
@@ -49,11 +46,11 @@ export default class Kanji {
       if (typeof romaji !== 'undefined') {
         const onyomiSet = FuzzySet(word.onyomi)
           .get(wanakana.toKatakana(romaji), null, 0.75)
-        if (onyomiSet !== null) item.score += onyomiSet[0][0] / 2
+        if (onyomiSet !== null) item.score += onyomiSet[0][0]
 
         const kunyomiSet = FuzzySet(word.kunyomi)
           .get(wanakana.toHiragana(romaji), null, 0.75)
-        if (kunyomiSet !== null) item.score += kunyomiSet[0][0] / 2
+        if (kunyomiSet !== null) item.score += kunyomiSet[0][0]
       }
 
       if (item.score > 0) words.push(item)
