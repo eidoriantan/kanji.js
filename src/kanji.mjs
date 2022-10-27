@@ -37,8 +37,8 @@ export default class Kanji {
       if (typeof jlpt === 'object') {
         if (jlpt.min && word.jlpt < jlpt.min) return
         else if (jlpt.max && word.jlpt > jlpt.max) return
-      } else if (typeof grade === 'number') {
-        if (word.grade !== grade) return
+      } else if (typeof jlpt === 'number') {
+        if (word.jlpt !== jlpt) return
       }
 
       if (typeof meaning !== 'undefined') {
