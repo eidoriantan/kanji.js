@@ -20,10 +20,6 @@
     "url": "https://eidoriantan.me"
   },
   "contributors": [],
-  "funding": {
-    "type": "patreon",
-    "url": "https://patreon.com/eidoriantan"
-  },
   "main": "dist/kanji.min.js",
   "types": "index.d.ts",
   "directories": {
