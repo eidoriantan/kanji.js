@@ -67,6 +67,6 @@ export default class Kanji {
 
   constructor () {
     this.name = 'Kanji'
-    this.version = '1.6.1'
+    this.version = '1.6.2'
   }
 }
