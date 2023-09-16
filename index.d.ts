@@ -2,8 +2,9 @@
 export as namespace Kanji;
 
 export default class Kanji {
-  name: string;
-  version: string;
+  readonly name: string;
+  readonly version: string;
+
   constructor ();
 
   static dump () : Array<Kanji.Word>;
