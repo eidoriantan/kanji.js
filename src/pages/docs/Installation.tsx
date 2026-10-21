@@ -1,7 +1,6 @@
 import { Link } from 'react-router'
 import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
-import Callout from '../../components/Callout'
 import { DocPage, H } from '../../components/DocsLayout'
 import { CDN_URL, LIB_VERSION, NPM_URL, RELEASES_URL, STATS } from '../../lib/site'
 
@@ -59,15 +58,6 @@ export default function Installation () {
       <CodeBlock lang='ts' code={`import Kanji from 'kanji.js'
 
 const day = Kanji.getDetails('日')`} />
-      <Callout title='The bundled types are stricter than the data' tone='warning'>
-        <p>
-          In version {LIB_VERSION}, <code>getDetails()</code> is typed as always returning a <code>Word</code>, but it returns <code>null</code> for characters
-          that aren't in the dictionary. The <code>grade</code>, <code>jlpt</code> and <code>freq</code> fields are typed as <code>number</code>, but
-          most characters have <code>null</code> for them. Handle <code>null</code> in your code anyway.
-          See <Link to='/docs/api#types'>Types</Link> for safer declarations you can copy.
-        </p>
-      </Callout>
-
       <H id='size'>Bundle size</H>
       <p>
         The library includes the whole dictionary, so it's larger than a typical utility library. The minified file is about {STATS.sizeMB} MB,
