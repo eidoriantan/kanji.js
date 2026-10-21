@@ -8,15 +8,15 @@ export default class Kanji {
   constructor ();
 
   static dump () : Array<Kanji.Word>;
-  static getDetails (character: string) : Kanji.Word;
+  static getDetails (character: string) : Kanji.Word | null;
   static search (options?: Kanji.SearchOptions) : Array<Kanji.Word>;
   static random () : Kanji.Word;
 }
 
 export interface Word {
-  freq: number;
-  grade: number;
-  jlpt: number;
+  freq: number | null;
+  grade: number | null;
+  jlpt: number | null;
   kunyomi: Array<string>;
   literal: string;
   meanings: Array<string>;
