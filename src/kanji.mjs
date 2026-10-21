@@ -4,6 +4,11 @@ import FuzzySet from 'fuzzyset.js'
 
 import dictionary from './kanjidic2/kanjidic2.min.mjs'
 
+function outOfRange (value, range) {
+  return (typeof range.min === 'number' && value < range.min) ||
+    (typeof range.max === 'number' && value > range.max)
+}
+
 export default class Kanji {
   static dump () { return dictionary }
 
@@ -28,9 +33,9 @@ export default class Kanji {
       const item = { word, score: 0 }
 
       if (
-        (typeof grade === 'object' && ((grade.min && word.grade < grade.min) || (grade.max && word.grade > grade.max))) ||
+        (typeof grade === 'object' && outOfRange(word.grade, grade)) ||
         (typeof grade === 'number' && word.grade !== grade) ||
-        (typeof jlpt === 'object' && ((jlpt.min && word.jlpt < jlpt.min) || (jlpt.max && word.jlpt > jlpt.max))) ||
+        (typeof jlpt === 'object' && outOfRange(word.jlpt, jlpt)) ||
         (typeof jlpt === 'number' && word.jlpt !== jlpt)
       ) {
         return
