@@ -1,0 +1,31 @@
+# This workflow publishes the package to npm with provenance using npm Trusted Publishing (OIDC)
+# For more information see: https://docs.npmjs.com/trusted-publishers
+
+name: Publish to npm
+
+on:
+  push:
+    tags: [ 'v*' ]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js 24.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24.x
+        registry-url: 'https://registry.npmjs.org'
+    # Trusted Publishing requires npm CLI 11.5.1 or later
+    - run: npm install -g npm@latest
+    - run: npm ci
+    - run: npm test
+      env:
+        CI: true
+    - run: npm publish
