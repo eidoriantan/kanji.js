@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kanji.js.org/</loc></url>
+  <url><loc>https://kanji.js.org/docs</loc></url>
+  <url><loc>https://kanji.js.org/docs/usage</loc></url>
+  <url><loc>https://kanji.js.org/docs/api</loc></url>
+  <url><loc>https://kanji.js.org/docs/data</loc></url>
+  <url><loc>https://kanji.js.org/docs/guides</loc></url>
+  <url><loc>https://kanji.js.org/playground</loc></url>
+  <url><loc>https://kanji.js.org/downloads</loc></url>
+</urlset>

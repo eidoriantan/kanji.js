@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Inter-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Inter-Bold.woff") format("woff");
+}
+
+/* Shu 朱: vermilion on sumi ink */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f4f3;
+  --text: #1a1a1a;
+  --muted: #5f5f5f;
+  --border: #e3e1df;
+  --primary: #c0392b;
+  --on-primary: #ffffff;
+  --accent-soft: #f1ece4;
+  --accent-text: #6b5631;
+  --code-bg: #f5f4f3;
+  --code-kw: #c0392b;
+  --code-str: #6b5631;
+  --code-com: #8c8c8c;
+  --code-fn: #1a1a1a;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #121212;
+  --surface: #1c1b1b;
+  --text: #ececec;
+  --muted: #9b9b9b;
+  --border: #2d2b2b;
+  --primary: #f0705f;
+  --on-primary: #140a08;
+  --accent-soft: #2e2a22;
+  --accent-text: #d8be8c;
+  --code-bg: #0c0c0c;
+  --code-kw: #f0705f;
+  --code-str: #d8be8c;
+  --code-com: #757575;
+  --code-fn: #ececec;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-code-bg: var(--code-bg);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-jp: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 22%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  /* Long-form documentation text */
+  .prose-doc {
+    @apply text-[15px] leading-7 text-text;
+  }
+  .prose-doc > * + * {
+    @apply mt-4;
+  }
+  .prose-doc h2 {
+    @apply mt-12 border-t border-border pt-8 text-xl font-bold tracking-tight;
+  }
+  .prose-doc h2:first-child {
+    @apply mt-0 border-t-0 pt-0;
+  }
+  .prose-doc h3 {
+    @apply mt-8 text-base font-bold;
+  }
+  .prose-doc p,
+  .prose-doc li {
+    @apply max-w-[70ch];
+  }
+  .prose-doc a {
+    @apply text-primary underline decoration-1 underline-offset-2 hover:decoration-2;
+  }
+  .prose-doc ul {
+    @apply list-disc space-y-1 pl-5 marker:text-muted;
+  }
+  .prose-doc ol {
+    @apply list-decimal space-y-1 pl-5 marker:text-muted;
+  }
+  .prose-doc :not(pre) > code {
+    @apply rounded bg-surface px-1.5 py-0.5 font-mono text-[0.85em];
+  }
+  .prose-doc strong {
+    @apply font-bold;
+  }
+  .prose-doc table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .prose-doc th {
+    @apply border-b border-border py-2 pr-4 font-medium text-muted;
+  }
+  .prose-doc td {
+    @apply border-b border-border py-2 pr-4 align-top;
+  }
+
+  .jp {
+    font-family: var(--font-jp);
+  }
+}
