@@ -61,7 +61,7 @@ export default class Kanji {
   }
 
   static random () {
-    const random = Math.floor(Math.random() * (dictionary.length - 1))
+    const random = Math.floor(Math.random() * dictionary.length)
     return dictionary[random]
   }
 
