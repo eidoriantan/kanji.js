@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import type { RouteObject } from 'react-router'
 import Layout from './components/Layout'
 import DocsLayout from './components/DocsLayout'
 import Home from './pages/Home'
@@ -12,16 +12,8 @@ import Downloads from './pages/Downloads'
 import NotFound from './pages/NotFound'
 import RouteError from './pages/RouteError'
 
-// Paths from the old Jekyll site, kept so existing links keep working.
-const legacy: Record<string, string> = {
-  '/index.html': '/',
-  '/docs/index.html': '/docs',
-  '/docs/usage.html': '/docs/usage',
-  '/docs/kanji.html': '/docs/api',
-  '/downloads/index.html': '/downloads'
-}
-
-export const router = createBrowserRouter([
+// Shared by the browser entry (main.tsx) and the prerender entry (entry-server.tsx).
+export const routes: RouteObject[] = [
   {
     element: <Layout />,
     errorElement: <RouteError />,
@@ -40,8 +32,7 @@ export const router = createBrowserRouter([
       },
       { path: 'playground', element: <Playground /> },
       { path: 'downloads', element: <Downloads /> },
-      ...Object.entries(legacy).map(([from, to]) => ({ path: from, element: <Navigate to={to} replace /> })),
       { path: '*', element: <NotFound /> }
     ]
   }
-])
+]

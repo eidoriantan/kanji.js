@@ -1,27 +1,27 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'
+import { findPage, headTags, pageTitle } from '../lib/pages'
 
-const BASE_TITLE = 'kanji.js'
-
-function setMeta (selector: string, attr: string, value: string) {
-  document.head.querySelector(selector)?.setAttribute(attr, value)
-}
-
-export default function Seo ({ title, description }: { title?: string, description?: string }) {
+/**
+ * Keeps the title and per-page <head> tags in sync with the current route.
+ * Prerendered pages already ship these tags (marked data-seo), so this only
+ * changes anything after client-side navigation, or in the dev server.
+ */
+export default function Seo () {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const full = title ? `${title} · ${BASE_TITLE}` : `${BASE_TITLE} · 漢字 search and lookup for JavaScript`
-    document.title = full
-    setMeta('meta[property="og:title"]', 'content', full)
-    if (description) {
-      setMeta('meta[name="description"]', 'content', description)
-      setMeta('meta[property="og:description"]', 'content', description)
+    const page = findPage(pathname)
+    document.title = pageTitle(page)
+    document.head.querySelectorAll('[data-seo]').forEach(el => el.remove())
+    for (const { tag, attrs, content } of headTags(page)) {
+      const el = document.createElement(tag)
+      for (const [name, value] of Object.entries(attrs)) el.setAttribute(name, value)
+      if (content) el.textContent = content
+      el.setAttribute('data-seo', '')
+      document.head.append(el)
     }
-    const url = `https://kanji.js.org${pathname}`
-    setMeta('link[rel="canonical"]', 'href', url)
-    setMeta('meta[property="og:url"]', 'content', url)
-  }, [title, description, pathname])
+  }, [pathname])
 
   return null
 }

@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
 import Callout from '../../components/Callout'
 import { DocPage, H } from '../../components/DocsLayout'
@@ -20,7 +19,6 @@ export default function Usage () {
       lead='kanji.js exports one class, Kanji, and every method on it is static. Import it and call the methods directly. You never need to create an instance.'
       toc={toc}
     >
-      <Seo title='Usage' description='Get started with kanji.js: importing the library and using getDetails, search, random and dump.' />
 
       <H id='importing'>Importing</H>
       <p>The package is a UMD build, so the import depends on your environment.</p>

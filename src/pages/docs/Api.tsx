@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
 import Callout from '../../components/Callout'
 import { DocPage, H } from '../../components/DocsLayout'
@@ -54,7 +53,6 @@ export default function Api () {
       lead={<>Everything kanji.js {LIB_VERSION} exports. The default export is the <code className='font-mono text-[0.9em]'>Kanji</code> class, and all of its methods are static.</>}
       toc={toc}
     >
-      <Seo title='API reference' description='Complete API reference for kanji.js: getDetails, search, random, dump, search options, ranking and TypeScript types.' />
 
       <H id='getdetails'>Kanji.getDetails()</H>
       <Signature returns='Word | null'>Kanji.getDetails(character: string)</Signature>

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import Seo from '../components/Seo'
 import KanjiCard from '../components/KanjiCard'
 import CodeBlock from '../components/CodeBlock'
 import CopyButton from '../components/CopyButton'
@@ -44,7 +43,6 @@ export default function Home () {
 
   return (
     <>
-      <Seo />
       <section className='mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-16 sm:px-6 md:grid-cols-[1fr_auto] md:pt-24'>
         <div className='min-w-0'>
           <Link

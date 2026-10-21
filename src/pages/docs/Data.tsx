@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
 import { DocPage, H } from '../../components/DocsLayout'
 import { EDRDG_LICENSE_URL, KANJIDIC_URL } from '../../lib/site'
@@ -38,7 +37,6 @@ export default function Data () {
       lead='Every method returns entries of the same shape. This page describes each field, what its values mean, and when it can be empty.'
       toc={toc}
     >
-      <Seo title='Character data' description='What each field in a kanji.js entry means: readings, meanings, stroke count, school grade, JLPT level and frequency.' />
 
       <H id='fields'>Fields</H>
       <CodeBlock code={`{

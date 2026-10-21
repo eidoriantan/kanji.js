@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>kanji.js · 漢字 search and lookup for JavaScript</title>
-    <meta name="description" content="kanji.js is an open-source JavaScript library to search and look up 漢字 (kanji) characters in Node.js and browsers, powered by KANJIDIC2." />
+    <!-- Per-page tags (description, canonical, Open Graph, JSON-LD) are added by
+         scripts/prerender.mjs at build time and by <Seo> in the browser. -->
     <meta name="keywords" content="kanji, 漢字, search, lookup, kanjidic, japanese, javascript, node" />
     <meta name="author" content="Adriane Justine Tan" />
     <meta name="theme-color" content="#c0392b" />
@@ -13,10 +14,13 @@
     <meta name="msvalidate.01" content="726752EEA782BD4FEA4C9A6FB1EF6A46" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="kanji.js" />
-    <meta property="og:title" content="kanji.js" />
-    <meta property="og:description" content="漢字 search and lookup library for Node.js and browsers." />
-    <meta property="og:url" content="https://kanji.js.org/" />
-    <link rel="canonical" href="https://kanji.js.org/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://kanji.js.org/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="kanji.js: 漢字 search and lookup for JavaScript" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="license" href="/LICENSE.txt" />
@@ -29,20 +33,11 @@
         var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
         document.documentElement.classList.toggle('dark', dark)
       })();
-      // GitHub Pages SPA fallback: restore the path that 404.html encoded.
-      (function (l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function (s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?')
-          history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash)
-        }
-      })(window.location);
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <noscript>kanji.js.org needs JavaScript. You can read the library's README on <a href="https://github.com/eidoriantan/kanji.js">GitHub</a>.</noscript>
+    <noscript>The playground, search and color mode need JavaScript. The library's README is also on <a href="https://github.com/eidoriantan/kanji.js">GitHub</a>.</noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

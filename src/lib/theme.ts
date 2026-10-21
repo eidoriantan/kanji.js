@@ -19,10 +19,14 @@ function apply (choice: ThemeChoice) {
 }
 
 export function useTheme () {
-  const [choice, setChoice] = useState<ThemeChoice>(readChoice)
+  // Start from 'system' so the first render matches the prerendered HTML, then
+  // read the saved choice. The inline script in index.html has already applied
+  // the right class, so nothing is re-applied until the choice changes.
+  const [choice, setChoice] = useState<ThemeChoice>('system')
+
+  useEffect(() => setChoice(readChoice()), [])
 
   useEffect(() => {
-    apply(choice)
     if (choice !== 'system') return
     const mq = media()
     const onChange = () => apply('system')
@@ -35,6 +39,7 @@ export function useTheme () {
       if (next === 'system') localStorage.removeItem(KEY)
       else localStorage.setItem(KEY, next)
     } catch {}
+    apply(next)
     setChoice(next)
   }, [])
 

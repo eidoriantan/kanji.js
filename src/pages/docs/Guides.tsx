@@ -1,4 +1,3 @@
-import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
 import { DocPage, H } from '../../components/DocsLayout'
 
@@ -19,7 +18,6 @@ export default function Guides () {
       lead='Short, copyable solutions to common tasks. Each one uses only the public API and plain JavaScript.'
       toc={toc}
     >
-      <Seo title='Recipes' description='kanji.js examples: look up kanji in text, build JLPT study lists, random flashcards, exact reading matches, lazy loading and Web Workers.' />
 
       <H id='kanji-in-text'>Look up every kanji in a text</H>
       <p>

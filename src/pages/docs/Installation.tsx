@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import Seo from '../../components/Seo'
 import CodeBlock from '../../components/CodeBlock'
 import { DocPage, H } from '../../components/DocsLayout'
 import { CDN_URL, LIB_VERSION, NPM_URL, RELEASES_URL, STATS } from '../../lib/site'
@@ -19,7 +18,6 @@ export default function Installation () {
       lead='Install kanji.js from npm, load it from a CDN, or download a built file. All three give you the same library and the same dictionary.'
       toc={toc}
     >
-      <Seo title='Installation' description='How to install kanji.js with npm, a CDN script tag, or a direct download.' />
 
       <H id='npm'>npm</H>
       <p>

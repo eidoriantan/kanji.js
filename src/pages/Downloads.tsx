@@ -1,5 +1,4 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import Seo from '../components/Seo'
 import CodeBlock from '../components/CodeBlock'
 import { DownloadIcon, ExternalIcon } from '../components/Icons'
 import { CDN_URL, RELEASES_URL, REPO } from '../lib/site'
@@ -87,7 +86,6 @@ export default function Downloads () {
 
   return (
     <div className='mx-auto max-w-3xl px-4 py-10 sm:px-6'>
-      <Seo title='Downloads' description='Download kanji.js releases, or install it from npm or a CDN.' />
       <header>
         <h1 className='text-3xl font-bold tracking-tight'>Downloads</h1>
         <p className='mt-3 max-w-[60ch] text-[17px] leading-7 text-muted'>

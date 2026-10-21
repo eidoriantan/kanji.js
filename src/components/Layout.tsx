@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import Header from './Header'
 import Footer from './Footer'
+import Seo from './Seo'
 
 function ScrollToTop () {
   const { pathname, hash } = useLocation()
@@ -24,6 +25,7 @@ export default function Layout () {
         Skip to content
       </a>
       <ScrollToTop />
+      <Seo />
       <Header />
       <main id='main' className='flex-1'>
         <Outlet />

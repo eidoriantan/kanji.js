@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router'
-import Seo from '../components/Seo'
 import KanjiCard from '../components/KanjiCard'
 import CodeBlock from '../components/CodeBlock'
 import { loadKanji, type KanjiLib, type RangeOption, type SearchOptions, type Word } from '../lib/kanji'
@@ -60,7 +59,6 @@ export default function Playground () {
 
   return (
     <div className='mx-auto max-w-6xl px-4 py-10 sm:px-6'>
-      <Seo title='Playground' description='Try kanji.js in your browser: search the KANJIDIC2 dictionary by meaning, romaji, grade and JLPT level.' />
       <header className='max-w-[65ch]'>
         <h1 className='text-3xl font-bold tracking-tight'>Playground</h1>
         <p className='mt-3 text-[17px] leading-7 text-muted'>
